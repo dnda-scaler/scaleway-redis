@@ -1,5 +1,5 @@
 # Goal
-Set of resources to help for creating Scaleway REDIS resources through terraform.
+Set of Terraform resources to help for creating Scaleway REDIS resources through terraform.
 3 resources have been provided :
 - Redis without VPC create a database that can be access through internet
 - Redis with VPC create a database that can be access Scaleway Private Network
