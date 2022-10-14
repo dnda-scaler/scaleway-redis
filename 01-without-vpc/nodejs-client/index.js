@@ -1,17 +1,30 @@
-const {createClient}=require("redis")
-const fs = require('fs');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const userService= require("./services/user-service");
+(function initialize(){
+    serverInit()
+})();
 
-const client=createClient({
-    url: 'redis://root:Test1;234a@51.159.180.105:6379',
-    socket: {
-        tls: true,
-       // servername: "51.159.180.105",
-        ca:  fs.readFileSync("/home/damnda/Downloads/SSL_redis-test_redis_basic.pem") 
-    }
-});
+function serverInit(){
+    console.log("Web server initialization start")
+    const app = express();
+    app.use(cors());
+    app.use(bodyParser.json());
+    app.get("/user/:id",(req, res) => {
+        userService.get(req.params.id).then((result)=>{
+            res.send(result);
+        });
+    });
 
-client.on('error', (err) => console.log('Redis Client Error', err));
-
-client.connect().then(()=>{
-    console.log("server start fine")
-});
+    app.post("/user",(req, res) => {
+        userService.create(req.body).then((result)=>{
+            res.send(result);
+        });
+    });
+    const port=5000
+    app.listen(port,(err) => {
+        console.log("Web server initialization is over")
+        console.log("server is currently listening on port ", port);
+    });
+}
