@@ -35,3 +35,4 @@ terraform.rc
 .terraform
 **/node_modules/*
 **/config/*
+.terraform.lock.hcl
