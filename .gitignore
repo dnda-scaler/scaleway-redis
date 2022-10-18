@@ -34,3 +34,7 @@ override.tf.json
 terraform.rc
 .terraform
 **/node_modules/*
+**/config/*
+.terraform.lock.hcl
+**/provider.tf
+**/terraform.tfvars
