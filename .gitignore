@@ -36,3 +36,5 @@ terraform.rc
 **/node_modules/*
 **/config/*
 .terraform.lock.hcl
+**/provider.tf
+**/terraform.tfvars

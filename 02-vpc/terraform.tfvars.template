@@ -1,0 +1,9 @@
+tns_enabled=true
+cluster_size=3
+username="admin"
+password="Test1234!&"
+node_type="RED1-MICRO"
+db_name="test_redis_within_vpc"
+redis_version="6.2.6"
+redis_private_ip_cidr=["192.168.0.253/24","192.168.0.252/24","192.168.0.254/24"]
+subnet_cidr="192.168.0.0/24"
